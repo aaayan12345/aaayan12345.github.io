@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Data Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A personal blog for data analysis, SQL, and machine learning research.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Data Lab">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Data Lab">
+<meta property="og:description" content="A personal blog for data analysis, SQL, and machine learning research.">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Ayan">
+<meta property="article:tag" content="data analysis, SQL, LLM, big data, machine learning">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Data Lab" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Data Lab</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Big Data Analysis &amp; Research</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Data-Analysis-Report" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/04/27/Data-Analysis-Report/" class="article-date">
+  <time class="dt-published" datetime="2026-04-26T16:00:00.000Z" itemprop="datePublished">2026-04-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Data-Analysis/">Data Analysis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/04/27/Data-Analysis-Report/">Q2(3) Report: MySQL Database and LLM Text-to-SQL Analysis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <style>
+/* ── Report-specific styles ── */
+.rpt-hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 55%, #4f46e5 100%);
+  border-radius: 16px;
+  padding: 44px 40px 40px;
+  margin: 0 0 32px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.rpt-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(139,92,246,0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+.rpt-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: 10%;
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.rpt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+.rpt-hero-title {
+  font-size: 2em;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  color: #fff;
+  letter-spacing: -1px;
+}
+.rpt-hero-sub {
+  font-size: 1em;
+  color: rgba(255,255,255,0.72);
+  margin: 0 0 22px;
+  font-weight: 400;
+}
+.rpt-hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rpt-tag {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ── PDF Viewer ── */
+.rpt-viewer-wrap {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 8px 32px rgba(0,0,0,0.06);
+  overflow: hidden;
+  margin-bottom: 0;
+  border: 1px solid #e2e8f0;
+}
+.rpt-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.rpt-file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+}
+.rpt-pdf-icon {
+  width: 34px; height: 34px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  box-shadow: 0 2px 6px rgba(220,38,38,0.35);
+  flex-shrink: 0;
+}
+.rpt-filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #334155;
+}
+.rpt-src-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.35);
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+  letter-spacing: 0.2px;
+}
+.rpt-src-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(79,70,229,0.45);
+}
+.rpt-src-btn:active {
+  transform: translateY(0);
+}
+.rpt-src-btn svg {
+  flex-shrink: 0;
+}
+.rpt-pdf-frame {
+  width: 100%;
+  height: 820px;
+  border: none;
+  display: block;
+}
+
+/* ── Source Code Drawer ── */
+.rpt-src-drawer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #0d1117;
+  border-radius: 0 0 14px 14px;
+  border: 1px solid #30363d;
+  border-top: none;
+}
+.rpt-src-drawer.open {
+  max-height: 620px;
+}
+.rpt-src-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.rpt-src-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8b949e;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.rpt-src-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #f97316;
+  box-shadow: 0 0 6px rgba(249,115,22,0.6);
+}
+.rpt-src-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rpt-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #21262d;
+  color: #8b949e;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.rpt-copy-btn:hover {
+  background: #30363d;
+  color: #e6edf3;
+}
+.rpt-close-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: #8b949e;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.rpt-close-btn:hover {
+  background: #30363d;
+  color: #e6edf3;
+}
+.rpt-src-body {
+  overflow-y: auto;
+  max-height: 560px;
+  padding: 0;
+}
+.rpt-src-pre {
+  margin: 0;
+  padding: 20px 24px;
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.65;
+  white-space: pre;
+  overflow-x: auto;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+</style>
+
+<!-- Hero Section -->
+<div class="rpt-hero">
+  <div class="rpt-badge">📊 Project 1 &nbsp;·&nbsp; Big Data Analysis</div>
+  <h1 class="rpt-hero-title">Q2(3) Report</h1>
+  <p class="rpt-hero-sub">MySQL Database &amp; LLM Text-to-SQL Analysis &nbsp;—&nbsp; April 2026</p>
+  <div class="rpt-hero-tags">
+    <span class="rpt-tag">MySQL 9.6</span>
+    <span class="rpt-tag">Text-to-SQL</span>
+    <span class="rpt-tag">Doubao LLM</span>
+    <span class="rpt-tag">IBM Telco Churn</span>
+    <span class="rpt-tag">LaTeX</span>
+  </div>
+</div>
+
+<!-- PDF Viewer + Toolbar -->
+<div class="rpt-viewer-wrap">
+  <div class="rpt-toolbar">
+    <div class="rpt-file-info">
+      <div class="rpt-pdf-icon">PDF</div>
+      <span class="rpt-filename">report_q2.pdf</span>
+    </div>
+    <button class="rpt-src-btn" id="rpt-toggle-btn" onclick="rptToggle()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="16 18 22 12 16 6"></polyline>
+        <polyline points="8 6 2 12 8 18"></polyline>
+      </svg>
+      <span id="rpt-btn-label">View Source Code</span>
+    </button>
+  </div>
+  <iframe class="rpt-pdf-frame" src="/pdfs/report_q2.pdf"></iframe>
+</div>
+
+<!-- Source Code Drawer -->
+<div class="rpt-src-drawer" id="rpt-src-drawer">
+  <div class="rpt-src-header">
+    <div class="rpt-src-title">
+      <span class="rpt-src-dot"></span>
+      report_q2.tex &nbsp;—&nbsp; LaTeX Source
+    </div>
+    <div class="rpt-src-actions">
+      <button class="rpt-copy-btn" onclick="rptCopy()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span id="rpt-copy-label">Copy</span>
+      </button>
+      <button class="rpt-close-btn" onclick="rptToggle()">✕ Close</button>
+    </div>
+  </div>
+  <div class="rpt-src-body">
+    <pre class="rpt-src-pre" id="rpt-src-display"></pre>
+  </div>
+</div>
+
+<!-- LaTeX source stored safely in a non-executed script tag -->
+<script type="text/x-latex" id="rpt-latex-raw">
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{float}
+
+\geometry{margin=2.5cm}
+
+\definecolor{codeblue}{RGB}{0,102,204}
+\definecolor{codegray}{RGB}{128,128,128}
+\definecolor{codegreen}{RGB}{0,128,0}
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{wrongred}{RGB}{200,0,0}
+\definecolor{correctgreen}{RGB}{0,140,0}
+
+\lstdefinestyle{sql}{
+  backgroundcolor=\color{codebg},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{codeblue}\bfseries,
+  commentstyle=\color{codegreen},
+  stringstyle=\color{orange},
+  breaklines=true,
+  frame=single,
+  rulecolor=\color{gray!40},
+  numbers=left,
+  numberstyle=\tiny\color{codegray},
+  numbersep=5pt,
+  language=SQL,
+  showstringspaces=false,
+  morekeywords={RANK,OVER,PARTITION,BETWEEN,CASE,WHEN,THEN,ELSE,END,LIMIT,DECIMAL,VARCHAR,TINYINT},
+}
+\lstset{style=sql}
+
+\hypersetup{colorlinks=true, linkcolor=blue, urlcolor=blue}
+
+\title{\textbf{Q2(3) Report: MySQL Database and LLM Text-to-SQL Analysis}}
+\author{Project 1 --- Big Data Analysis}
+\date{April 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+%% Section 1
+\section{Database Setup}
+
+\subsection{Environment}
+
+\begin{itemize}
+  \item \textbf{Database}: MySQL 9.6.0 (installed via Homebrew on macOS)
+  \item \textbf{Dataset}: IBM Telco Customer Churn
+    (\url{https://github.com/databricks-industry-solutions/survival-analysis})
+  \item \textbf{LLM used}: Doubao (ByteDance) --- \texttt{doubao-pro-32k}
+\end{itemize}
+
+\subsection{Database Schema}
+
+\begin{lstlisting}[caption={DDL: create database and table}]
+CREATE DATABASE telco_churn
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE telco_churn;
+
+CREATE TABLE customers (
+    customerID       VARCHAR(20)   PRIMARY KEY,
+    gender           VARCHAR(10),
+    seniorCitizen    TINYINT(1),
+    partner          VARCHAR(5),
+    dependents       VARCHAR(5),
+    tenure           INT,
+    phoneService     VARCHAR(5),
+    multipleLines    VARCHAR(30),
+    internetService  VARCHAR(20),
+    onlineSecurity   VARCHAR(30),
+    onlineBackup     VARCHAR(30),
+    deviceProtection VARCHAR(30),
+    techSupport      VARCHAR(30),
+    streamingTV      VARCHAR(30),
+    streamingMovies  VARCHAR(30),
+    contract         VARCHAR(20),
+    paperlessBilling VARCHAR(5),
+    paymentMethod    VARCHAR(40),
+    monthlyCharges   DECIMAL(8,2),
+    totalCharges     DECIMAL(10,2),
+    churn            VARCHAR(5)
+);
+\end{lstlisting}
+
+\subsection{Data Import}
+
+The CSV (1{,}000 rows) was imported using Python-generated \texttt{INSERT} statements.
+
+\begin{table}[H]
+\centering
+\caption{Import verification}
+\begin{tabular}{lc}
+\toprule
+Metric & Value \\
+\midrule
+Total records & 1{,}000 \\
+Churned customers & 284 \\
+Overall churn rate & 28.4\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%% Section 2
+\section{Analytical Queries and Results}
+
+\subsection{Query 1: Churn Rate by Contract Type}
+
+\begin{lstlisting}[caption={Churn rate by contract type}]
+SELECT contract,
+       COUNT(*)                                    AS total,
+       SUM(churn = 'Yes')                          AS churned,
+       ROUND(SUM(churn='Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+GROUP BY contract
+ORDER BY churn_rate_pct DESC;
+\end{lstlisting}
+
+\subsection{Query 2: Average Monthly Charges by Internet Service and Churn}
+
+\begin{lstlisting}[caption={Average monthly charges}]
+SELECT internetService, churn,
+       ROUND(AVG(monthlyCharges), 2) AS avg_monthly,
+       COUNT(*)                       AS cnt
+FROM customers
+GROUP BY internetService, churn
+ORDER BY internetService, churn;
+\end{lstlisting}
+
+\subsection{Query 3: Payment Methods Ranked by Total Revenue}
+
+\begin{lstlisting}[caption={Payment methods by revenue}]
+SELECT paymentMethod,
+       ROUND(SUM(totalCharges), 2) AS total_revenue,
+       COUNT(*)                     AS customers
+FROM customers
+GROUP BY paymentMethod
+ORDER BY total_revenue DESC
+LIMIT 5;
+\end{lstlisting}
+
+\subsection{Query 4: Senior Citizen Churn Rate}
+
+\begin{lstlisting}[caption={Senior citizen churn rate}]
+SELECT seniorCitizen,
+       COUNT(*)                                      AS total,
+       SUM(churn = 'Yes')                            AS churned,
+       ROUND(SUM(churn='Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+GROUP BY seniorCitizen;
+\end{lstlisting}
+
+\subsection{Query 5: Churn Rate by Tenure Bucket}
+
+\begin{lstlisting}[caption={Churn rate by tenure bucket}]
+SELECT
+    CASE
+        WHEN tenure BETWEEN 1  AND 12 THEN '1-12 months'
+        WHEN tenure BETWEEN 13 AND 24 THEN '13-24 months'
+        WHEN tenure BETWEEN 25 AND 36 THEN '25-36 months'
+        WHEN tenure BETWEEN 37 AND 48 THEN '37-48 months'
+        WHEN tenure BETWEEN 49 AND 60 THEN '49-60 months'
+        ELSE '61+ months'
+    END AS tenure_bucket,
+    COUNT(*)                                      AS total,
+    SUM(churn = 'Yes')                            AS churned,
+    ROUND(SUM(churn='Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+GROUP BY tenure_bucket
+ORDER BY MIN(tenure);
+\end{lstlisting}
+
+%% Section 3
+\section{LLM Failure Case Analysis}
+
+\subsection{Failure Case 1: Boolean Comparison with String Column}
+
+\begin{lstlisting}[caption={\textcolor{wrongred}{Wrong SQL}}]
+SELECT
+    COUNT(*) AS total_customers,
+    SUM(CASE WHEN churn = 1 THEN 1 ELSE 0 END) AS churned_customers,
+    ROUND(SUM(CASE WHEN churn = 1 THEN 1 ELSE 0 END) * 100.0
+          / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+WHERE onlineSecurity = 1
+  AND onlineBackup = 1
+  AND techSupport = 1;
+\end{lstlisting}
+
+\begin{lstlisting}[caption={\textcolor{correctgreen}{Correct SQL}}]
+SELECT
+    COUNT(*)                                      AS total_customers,
+    SUM(churn = 'Yes')                            AS churned_customers,
+    ROUND(SUM(churn = 'Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+WHERE onlineSecurity  = 'Yes'
+  AND onlineBackup    = 'Yes'
+  AND techSupport     = 'Yes';
+\end{lstlisting}
+
+\subsection{Failure Case 2: Ranking by Churn Rate vs.\ Total Count}
+
+\begin{lstlisting}[caption={\textcolor{wrongred}{Wrong SQL}}]
+SELECT paymentMethod,
+       COUNT(*) AS total_customers,
+       SUM(CASE WHEN churn = 'Yes' THEN 1 ELSE 0 END) AS churned_customers,
+       RANK() OVER (ORDER BY COUNT(*) DESC) AS churn_rank
+FROM customers
+GROUP BY paymentMethod
+ORDER BY churn_rank;
+\end{lstlisting}
+
+\begin{lstlisting}[caption={\textcolor{correctgreen}{Correct SQL}}]
+SELECT paymentMethod,
+       COUNT(*)                                      AS total_customers,
+       SUM(churn = 'Yes')                            AS churned_customers,
+       ROUND(SUM(churn='Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct,
+       RANK() OVER (
+           ORDER BY SUM(churn = 'Yes') * 1.0 / COUNT(*) DESC
+       ) AS churn_rank
+FROM customers
+GROUP BY paymentMethod
+ORDER BY churn_rank;
+\end{lstlisting}
+
+\subsection{Failure Case 3: GROUP BY Ordering with CASE Buckets}
+
+\begin{lstlisting}[caption={\textcolor{wrongred}{Wrong SQL}}]
+SELECT
+    CASE
+        WHEN tenure BETWEEN 1  AND 12 THEN '1-12 months'
+        WHEN tenure BETWEEN 13 AND 24 THEN '13-24 months'
+        WHEN tenure BETWEEN 25 AND 36 THEN '25-36 months'
+        WHEN tenure BETWEEN 37 AND 48 THEN '37-48 months'
+        WHEN tenure BETWEEN 49 AND 60 THEN '49-60 months'
+        ELSE '61+ months'
+    END AS tenure_bucket,
+    COUNT(*) AS total,
+    SUM(CASE WHEN churn = 'Yes' THEN 1 ELSE 0 END) AS churned,
+    ROUND(SUM(CASE WHEN churn = 'Yes' THEN 1 ELSE 0 END)
+          * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+GROUP BY tenure_bucket
+ORDER BY tenure_bucket;
+\end{lstlisting}
+
+\begin{lstlisting}[caption={\textcolor{correctgreen}{Correct SQL --- robust ordering}}]
+SELECT
+    CASE
+        WHEN tenure BETWEEN 1  AND 12 THEN '1-12 months'
+        WHEN tenure BETWEEN 13 AND 24 THEN '13-24 months'
+        WHEN tenure BETWEEN 25 AND 36 THEN '25-36 months'
+        WHEN tenure BETWEEN 37 AND 48 THEN '37-48 months'
+        WHEN tenure BETWEEN 49 AND 60 THEN '49-60 months'
+        ELSE '61+ months'
+    END AS tenure_bucket,
+    COUNT(*)                                      AS total,
+    SUM(churn = 'Yes')                            AS churned,
+    ROUND(SUM(churn='Yes') * 100.0 / COUNT(*), 2) AS churn_rate_pct
+FROM customers
+GROUP BY tenure_bucket
+ORDER BY MIN(tenure);
+\end{lstlisting}
+
+%% Section 4
+\section{Summary: When Do LLMs Fail at SQL Generation?}
+
+\begin{enumerate}
+  \item \textbf{Type inference from semantics, not schema.}
+        LLMs infer column types from names rather than the DDL.
+
+  \item \textbf{Conflating ``rank by X'' with ``rank by count of X''.}
+        LLMs substitute simpler aggregates for derived metrics.
+
+  \item \textbf{Defaulting to lexicographic ordering for labeled buckets.}
+        LLMs use \texttt{ORDER BY alias} (string sort) instead of
+        \texttt{ORDER BY MIN(tenure)} (numeric sort).
+\end{enumerate}
+
+\end{document}
+</script>
+
+<script>
+(function() {
+  // Populate source display from the safe script tag
+  var raw = document.getElementById('rpt-latex-raw');
+  var display = document.getElementById('rpt-src-display');
+  if (raw && display) {
+    display.textContent = raw.textContent.trim();
+  }
+
+  // Toggle drawer
+  window.rptToggle = function() {
+    var drawer = document.getElementById('rpt-src-drawer');
+    var label  = document.getElementById('rpt-btn-label');
+    var isOpen = drawer.classList.contains('open');
+    drawer.classList.toggle('open');
+    label.textContent = isOpen ? 'View Source Code' : 'Hide Source Code';
+    if (!isOpen) {
+      setTimeout(function() {
+        drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+  };
+
+  // Copy to clipboard
+  window.rptCopy = function() {
+    var raw = document.getElementById('rpt-latex-raw');
+    var lbl = document.getElementById('rpt-copy-label');
+    if (!raw) return;
+    navigator.clipboard.writeText(raw.textContent.trim()).then(function() {
+      lbl.textContent = 'Copied!';
+      setTimeout(function() { lbl.textContent = 'Copy'; }, 2000);
+    }).catch(function() {
+      lbl.textContent = 'Failed';
+      setTimeout(function() { lbl.textContent = 'Copy'; }, 2000);
+    });
+  };
+})();
+</script>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/04/27/Data-Analysis-Report/" data-id="cuidLZF-5VHZAEdLLAd27_SGs" data-title="Q2(3) Report: MySQL Database and LLM Text-to-SQL Analysis" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Big-Data/" rel="tag">Big Data</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Text-to-SQL/" rel="tag">Text-to-SQL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Data-Analysis/">Data Analysis</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Data/" rel="tag">Big Data</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LLM/" rel="tag">LLM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Text-to-SQL/" rel="tag">Text-to-SQL</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Big-Data/" style="font-size: 10px;">Big Data</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/SQL/" style="font-size: 10px;">SQL</a> <a href="/tags/Text-to-SQL/" style="font-size: 10px;">Text-to-SQL</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/04/">April 2026</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/04/27/Data-Analysis-Report/">Q2(3) Report: MySQL Database and LLM Text-to-SQL Analysis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 Ayan<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
